@@ -6,3 +6,6 @@ export { Scaling };
 
 import { HorizontalClientScaling } from './HorizontalClientScaling';
 export { HorizontalClientScaling };
+
+import { VerticalClientScaling } from './VerticalClientScaling';
+export { VerticalClientScaling };
