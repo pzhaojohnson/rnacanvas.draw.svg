@@ -1,27 +1,27 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { assignUUID } from './assignUUID';
+
+import * as SVG from '@svgdotjs/svg.js';
 
 import { validate as validateUUID } from 'uuid';
 
 test('assignUUID function', () => {
-  let id = null;
-
-  let ele = {
-    attr: (name, value) => {
-      if (name === 'id') {
-        id = value;
-      }
-    },
-  };
+  let ele = (new SVG.Text()).node;
+  expect(ele.getAttribute('id')).toBeFalsy();
 
   assignUUID(ele);
 
   // assigned some sort of ID
-  expect(typeof id).toBe('string');
+  expect(ele.getAttribute('id')).toBeTruthy();
+  expect(typeof ele.getAttribute('id')).toBe('string');
 
   // prepends some letters
-  expect(id.startsWith('uuid-')).toBeTruthy();
+  expect(ele.id.startsWith('uuid-')).toBeTruthy();
 
   // assigned a UUID
-  expect(validateUUID(id.slice(5))).toBeTruthy();
-  expect(id.slice(5).length).toBe(36);
+  expect(validateUUID(ele.id.slice(5))).toBeTruthy();
+  expect(ele.id.slice(5).length).toBe(36);
 });

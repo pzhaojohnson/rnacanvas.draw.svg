@@ -1,5 +1,3 @@
-import * as SVG from '@svgdotjs/svg.js';
-
 import { v4 as uuidv4 } from 'uuid';
 
 /**
@@ -12,6 +10,6 @@ import { v4 as uuidv4 } from 'uuid';
  *
  * Thus, assigned UUIDs will be a little bit bigger than 36 characters (the standard size for UUIDs).
  */
-export function assignUUID(ele: SVG.Element): void {
-  ele.attr('id', 'uuid-' + uuidv4());
+export function assignUUID(ele: SVGElement): void {
+  ele.id = 'uuid-' + uuidv4();
 }

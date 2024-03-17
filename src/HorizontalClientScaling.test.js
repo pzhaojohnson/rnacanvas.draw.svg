@@ -3,8 +3,8 @@ import { HorizontalClientScaling } from './HorizontalClientScaling';
 describe('HorizontalClientScaling class', () => {
   test('get method', () => {
     let targetSVGDoc = {
-      node: { getBoundingClientRect: () => ({ width: 2386 }) },
-      viewbox: () => ({ width: 1822 }),
+      getBoundingClientRect: () => ({ width: 2386 }),
+      viewBox: { baseVal: { width: 1822 } },
     };
 
     let horizontalClientScaling = new HorizontalClientScaling(targetSVGDoc);

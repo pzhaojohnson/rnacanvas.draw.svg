@@ -5,14 +5,10 @@ describe('Scaling class', () => {
     let attributes = { 'width': null, 'height': null };
 
     let targetSVGDoc = {
-      viewbox: () => ({ width: 1293, height: 871 }),
+      viewBox: { baseVal: { width: 1293, height: 871 } },
 
-      attr: attrs => {
-        ['width', 'height'].forEach(name => {
-          if (name in attrs) {
-            attributes[name] = attrs[name];
-          }
-        });
+      setAttribute: (name, value) => {
+        attributes[name] = value;
       },
     };
 
