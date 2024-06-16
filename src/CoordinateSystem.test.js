@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { CoordinateSystem } from './CoordinateSystem';
 
 describe('CoordinateSystem class', () => {
@@ -69,6 +73,19 @@ describe('CoordinateSystem class', () => {
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 
     expect(coordinateSystem.verticalScaling).toBeCloseTo(471.2 / 908.227);
+  });
+
+  test('setScaling method', () => {
+    let targetSVGDoc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+    targetSVGDoc.viewBox = { baseVal: { width: 1912.83, height: 3304.98 } };
+
+    let coordinateSystem = new CoordinateSystem(targetSVGDoc);
+
+    coordinateSystem.setScaling(2.81);
+
+    expect(targetSVGDoc.getAttribute('width')).toBe(`${2.81 * 1912.83}`);
+    expect(targetSVGDoc.getAttribute('height')).toBe(`${2.81 * 3304.98}`);
   });
 
   test('clientWidth getter', () => {

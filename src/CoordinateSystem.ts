@@ -74,6 +74,19 @@ export class CoordinateSystem {
   }
 
   /**
+   * Sets both the horizontal and vertical scalings of the target SVG document
+   * to the provided scaling factor at once.
+   *
+   * Does so by modifying the `width` and `height` attributes of the target SVG document.
+   *
+   * Does not modify the view box of the target SVG document.
+   */
+  setScaling(scaling: number): void {
+    this.targetSVGDoc.setAttribute('width', `${scaling * this.width}`);
+    this.targetSVGDoc.setAttribute('height', `${scaling * this.height}`);
+  }
+
+  /**
    * The width of the bounding client rect for the target SVG document.
    */
   get clientWidth(): number {
