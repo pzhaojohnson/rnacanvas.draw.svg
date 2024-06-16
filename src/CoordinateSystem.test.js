@@ -49,6 +49,28 @@ describe('CoordinateSystem class', () => {
     expect(coordinateSystem.maxY).toBe(32.98 + 202.184);
   });
 
+  test('horizontalScaling getter', () => {
+    let targetSVGDoc = {
+      viewBox: { baseVal: { width: 708.114 } },
+      width: { baseVal: { value: 1389.27 } },
+    };
+
+    let coordinateSystem = new CoordinateSystem(targetSVGDoc);
+
+    expect(coordinateSystem.horizontalScaling).toBeCloseTo(1389.27 / 708.114);
+  });
+
+  test('verticalScaling getter', () => {
+    let targetSVGDoc = {
+      viewBox: { baseVal: { height: 908.227 } },
+      height: { baseVal: { value: 471.2 } },
+    };
+
+    let coordinateSystem = new CoordinateSystem(targetSVGDoc);
+
+    expect(coordinateSystem.verticalScaling).toBeCloseTo(471.2 / 908.227);
+  });
+
   test('clientWidth getter', () => {
     let targetSVGDoc = { getBoundingClientRect: () => ({ width: 560.27 }) };
 

@@ -54,6 +54,26 @@ export class CoordinateSystem {
   }
 
   /**
+   * The horizontal scaling factor of the target SVG document
+   * (as defined by the width of its view box and its `width` attribute).
+   */
+  get horizontalScaling(): number {
+    let widthAttribute = this.targetSVGDoc.width.baseVal.value;
+
+    return widthAttribute / this.width;
+  }
+
+  /**
+   * The vertical scaling factor of the target SVG document
+   * (as defined by the height of its view box and its `height` attribute).
+   */
+  get verticalScaling(): number {
+    let heightAttribute = this.targetSVGDoc.height.baseVal.value;
+
+    return heightAttribute / this.height;
+  }
+
+  /**
    * The width of the bounding client rect for the target SVG document.
    */
   get clientWidth(): number {
