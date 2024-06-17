@@ -144,45 +144,45 @@ describe('CoordinateSystem class', () => {
 
   test('fromClientX method', () => {
     let targetSVGDoc = {
-      viewBox: { baseVal: { width: 2388.72 } },
+      viewBox: { baseVal: { x: -85.8, width: 2388.72 } },
       getBoundingClientRect: () => ({ x: 328.991, width: 1480.2 }),
     };
 
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 
-    expect(coordinateSystem.fromClientX(-80.3)).toBeCloseTo(((-80.3) - 328.991) / (1480.2 / 2388.72));
+    expect(coordinateSystem.fromClientX(-80.3)).toBeCloseTo((-85.8) + (((-80.3) - 328.991) / (1480.2 / 2388.72)));
   });
 
   test('fromClientY method', () => {
     let targetSVGDoc = {
-      viewBox: { baseVal: { height: 670.1 } },
+      viewBox: { baseVal: { y: -602.7, height: 670.1 } },
       getBoundingClientRect: () => ({ y: -203.58, height: 1100.88 }),
     };
 
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 
-    expect(coordinateSystem.fromClientY(18.4)).toBeCloseTo((18.4 - (-203.58)) / (1100.88 / 670.1));
+    expect(coordinateSystem.fromClientY(18.4)).toBeCloseTo((-602.7) + ((18.4 - (-203.58)) / (1100.88 / 670.1)));
   });
 
   test('toClientX method', () => {
     let targetSVGDoc = {
       viewBox: { baseVal: { x: -28.18, width: 901.37 } },
-      getBoundingClientRect: () => ({ width: 1503.2 }),
+      getBoundingClientRect: () => ({ x: 259.225, width: 1503.2 }),
     };
 
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 
-    expect(coordinateSystem.toClientX(250.4)).toBeCloseTo((1503.2 / 901.37) * (250.4 - (-28.18)));
+    expect(coordinateSystem.toClientX(250.4)).toBeCloseTo(259.225 + ((1503.2 / 901.37) * (250.4 - (-28.18))));
   });
 
   test('toClientY method', () => {
     let targetSVGDoc = {
       viewBox: { baseVal: { y: 82.5, height: 1533 } },
-      getBoundingClientRect: () => ({ height: 1204.5 }),
+      getBoundingClientRect: () => ({ y: -801.4, height: 1204.5 }),
     };
 
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 
-    expect(coordinateSystem.toClientY(-501)).toBeCloseTo((1204.5 / 1533) * ((-501) - 82.5));
+    expect(coordinateSystem.toClientY(-501)).toBeCloseTo((-801.4) + ((1204.5 / 1533) * ((-501) - 82.5)));
   });
 });

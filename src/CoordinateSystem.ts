@@ -141,7 +141,7 @@ export class CoordinateSystem {
    * (i.e., as defined by its view box).
    */
   fromClientX(clientX: number): number {
-    return (clientX - this.minClientX) / this.horizontalClientScaling;
+    return this.minX + ((clientX - this.minClientX) / this.horizontalClientScaling);
   }
 
   /**
@@ -151,7 +151,7 @@ export class CoordinateSystem {
    * (i.e., as defined by its view box).
    */
   fromClientY(clientY: number): number {
-    return (clientY - this.minClientY) / this.verticalClientScaling;
+    return this.minY + ((clientY - this.minClientY) / this.verticalClientScaling);
   }
 
   /**
@@ -189,7 +189,7 @@ export class CoordinateSystem {
    * (i.e., the coordinate system used by methods such as `getBoundingClientRect`).
    */
   toClientX(x: number): number {
-    return this.horizontalClientScaling * (x - this.minX);
+    return this.minClientX + (this.horizontalClientScaling * (x - this.minX));
   }
 
   /**
@@ -199,7 +199,7 @@ export class CoordinateSystem {
    * (i.e., the coordinate system used by methods such as `getBoundingClientRect`).
    */
   toClientY(y: number): number {
-    return this.verticalClientScaling * (y - this.minY);
+    return this.minClientY + (this.verticalClientScaling * (y - this.minY));
   }
 
   /**
