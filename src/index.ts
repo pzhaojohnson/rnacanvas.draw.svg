@@ -18,3 +18,6 @@ export { bringToFront };
 
 import { sendToBack } from './sendToBack';
 export { sendToBack };
+
+import { InnerXML } from './InnerXML';
+export { InnerXML };
