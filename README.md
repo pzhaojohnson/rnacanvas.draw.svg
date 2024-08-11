@@ -37,5 +37,5 @@ var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 assignUUID(circle);
 
 // a UUID prepended with "uuid-"
-circle.id; // 'uuid-33489b65-e606-4d15-af43-558b926ff25a'
+circle.id; // "uuid-33489b65-e606-4d15-af43-558b926ff25a"
 ```
