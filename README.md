@@ -39,3 +39,17 @@ assignUUID(circle);
 // a UUID prepended with "uuid-"
 circle.id; // "uuid-33489b65-e606-4d15-af43-558b926ff25a"
 ```
+
+## `bringToFront()`
+
+Makes the specified SVG element the last child of its parent node.
+(Has no effect if the specified SVG element has no parent node.)
+
+Note that this function only makes the specified SVG element the last child of its immediate parent node
+(not the root SVG document if the specified SVG element is nested with a `g` element, for instance).
+
+```javascript
+bringToFront(svgElement);
+
+svgElement.parentNode.lastChild === svgElement; // true
+```
