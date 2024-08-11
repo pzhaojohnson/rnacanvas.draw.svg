@@ -72,7 +72,7 @@ svgElement.parentNode.firstChild === svgElement; // true
 
 ## `Scaling`
 
-The `Scaling` represents the scaling of a target SVG document.
+The `Scaling` class represents the scaling of a target SVG document.
 
 ```javascript
 var targetSVGDoc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
