@@ -70,6 +70,19 @@ sendToBack(svgElement);
 svgElement.parentNode.firstChild === svgElement; // true
 ```
 
+## `Scaling`
+
+The `Scaling` represents the scaling of a target SVG document.
+
+```javascript
+var targetSVGDoc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+var scaling = new Scaling(targetSVGDoc);
+
+// adjusts the `width` and `height` attributes of the target SVG document
+// to set both its horizontal and vertical scaling factors at once
+scaling.set(2);
+```
+
 ## `InnerXML`
 
 The `InnerXML` class represents the inner XML of a target SVG element.
