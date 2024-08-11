@@ -69,3 +69,26 @@ sendToBack(svgElement);
 
 svgElement.parentNode.firstChild === svgElement; // true
 ```
+
+## `InnerXML`
+
+The `InnerXML` class represents the inner XML
+(i.e., the value of the `innerHTML` property)
+of a target SVG element.
+
+```javascript
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+svg.append(circle);
+
+var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+text.textContent = 'A';
+svg.append(text);
+
+var innerXML = new InnerXML(svg);
+innerXML.toString(); // "<circle></circle><text>A</text>"
+
+// can also be set
+innerXML.set('<rect></rect><text>B</text>');
+```
