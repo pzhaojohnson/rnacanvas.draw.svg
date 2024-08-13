@@ -106,3 +106,32 @@ innerXML.toString(); // "<circle></circle><text>A</text>"
 // sets the `innerHTML` property of the target SVG element
 innerXML.set('<rect></rect><text>B</text>');
 ```
+
+## `OuterXML`
+
+The `OuterXML` class represents the outer XML of a target SVG element.
+
+The critical difference between the behavior of this class
+and the `outerHTML` property of SVG elements
+is that the `set()` method of this class modifies the target SVG element <b>in place</b>,
+as opposed to replacing the target SVG element with newly created SVG element(s)
+as setting the `outerHTML` property would.
+
+Thus, the `set()` method will throw if the specified outer XML does not encode exactly one SVG element
+or if the specified outer XML encodes an SVG element with a tag name that is different from the target SVG element.
+
+```javascript
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+svg.setAttribute('viewBox', '0 0 10 20');
+
+svg.append(document.createElementNS('http://www.w3.org/2000/svg', 'circle'));
+svg.append(document.createElementNS('http://www.w3.org/2000/svg', 'rect'));
+svg.append('Some text.');
+
+var outerXML = new OuterXML(svg);
+
+outerXML.toString(); // "<svg viewBox="0 0 10 20"><circle></circle><rect></rect>Some text.</svg>"
+
+outerXML.set('<svg viewBox="0 0 25 25" width="50" height="50>Different text.<path></path></svg>');
+```
