@@ -21,3 +21,6 @@ export { sendToBack };
 
 import { InnerXML } from './InnerXML';
 export { InnerXML };
+
+import { OuterXML } from './OuterXML';
+export { OuterXML };
