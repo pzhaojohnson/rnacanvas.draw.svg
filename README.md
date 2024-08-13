@@ -118,7 +118,7 @@ as opposed to replacing the target SVG element with newly created SVG element(s)
 which is what setting the `outerHTML` property does.
 
 Thus, the `set()` method will throw if the specified outer XML does not encode exactly one SVG element
-and if the specified outer XML encodes an SVG element with a tag name different from that of the target SVG element.
+or if the specified outer XML encodes an SVG element with a tag name different from that of the target SVG element.
 
 ```javascript
 var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -131,7 +131,7 @@ svg.append('Some text.');
 
 var outerXML = new OuterXML(svg);
 
-outerXML.toString(); // "<svg viewBox="0 0 10 20"><circle></circle><rect></rect>Some text.</svg>"
+outerXML.toString(); // '<svg viewBox="0 0 10 20"><circle></circle><rect></rect>Some text.</svg>'
 
 outerXML.set('<svg viewBox="0 0 25 25" width="50" height="50>Different text.<path></path></svg>');
 ```
