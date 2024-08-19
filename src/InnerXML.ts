@@ -1,24 +1,24 @@
 /**
- * Represents the inner XML of a target SVG document.
+ * Represents the inner XML of a target SVG element.
  */
 export class InnerXML {
-  #targetSVGDoc: SVGSVGElement;
+  #targetSVGElement: SVGElement;
 
-  constructor(targetSVGDoc: SVGSVGElement) {
-    this.#targetSVGDoc = targetSVGDoc;
+  constructor(targetSVGElement: SVGElement) {
+    this.#targetSVGElement = targetSVGElement;
   }
 
   /**
-   * Returns the `innerHTML` property of the target SVG document.
+   * Returns the `innerHTML` property of the target SVG element.
    */
   toString(): string {
-    return this.#targetSVGDoc.innerHTML;
+    return this.#targetSVGElement.innerHTML;
   }
 
   /**
-   * Sets the `innerHTML` property of the target SVG document.
+   * Sets the `innerHTML` property of the target SVG element.
    */
   set(innerXML: string): void {
-    this.#targetSVGDoc.innerHTML = innerXML;
+    this.#targetSVGElement.innerHTML = innerXML;
   }
 }
