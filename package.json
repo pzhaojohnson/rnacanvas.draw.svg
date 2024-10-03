@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/draw.svg",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "SVG drawing utilities",
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@rnacanvas/value-check": "^1.14.1",
     "@svgdotjs/svg.js": "^3.2.0",
     "uuid": "^10.0.0"
   }

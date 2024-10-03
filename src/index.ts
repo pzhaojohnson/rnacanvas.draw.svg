@@ -1,3 +1,6 @@
+import { setAttributes } from './setAttributes';
+export { setAttributes };
+
 import { assignUUID } from './assignUUID';
 export { assignUUID };
 
