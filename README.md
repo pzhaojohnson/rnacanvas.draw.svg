@@ -16,6 +16,18 @@ import { assignUUID } from '@rnacanvas/draw.svg';
 import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
 ```
 
+## `setAttributes()`
+
+Set multiple attributes of a target SVG element at once.
+
+```javascript
+setAttributes(targetSVGElement, {
+  'stroke': '#526bcf',
+  'stroke-opacity': '0.72',
+  'fill-opacity': '0.91',
+});
+```
+
 ## `assignUUID()`
 
 Assigns a [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID)
