@@ -14,6 +14,7 @@ All exports of this package can be accessed as named imports.
 // some example imports
 import { assignUUID } from '@rnacanvas/draw.svg';
 import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
+import { InnerXML, OuterXML } from '@rnacanvas/draw.svg';
 ```
 
 ## `setAttributes()`
