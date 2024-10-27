@@ -27,3 +27,6 @@ export { InnerXML };
 
 import { OuterXML } from './OuterXML';
 export { OuterXML };
+
+import { isSVGGraphicsElement } from './isSVGGraphicsElement';
+export { isSVGGraphicsElement };
