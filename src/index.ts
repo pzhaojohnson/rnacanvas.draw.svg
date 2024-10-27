@@ -30,3 +30,6 @@ export { OuterXML };
 
 import { isSVGGraphicsElement } from './isSVGGraphicsElement';
 export { isSVGGraphicsElement };
+
+import { isSVGGraphicsElementsArray } from './isSVGGraphicsElementsArray';
+export { isSVGGraphicsElementsArray };
