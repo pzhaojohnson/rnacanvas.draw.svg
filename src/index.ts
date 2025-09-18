@@ -33,3 +33,6 @@ export { isSVGGraphicsElement };
 
 import { isSVGGraphicsElementsArray } from './isSVGGraphicsElementsArray';
 export { isSVGGraphicsElementsArray };
+
+import { drawOnCanvas } from './drawOnCanvas';
+export { drawOnCanvas };
