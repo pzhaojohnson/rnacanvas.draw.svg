@@ -148,3 +148,21 @@ outerXML.toString(); // '<svg viewBox="0 0 10 20"><circle></circle><rect></rect>
 
 outerXML.set('<svg viewBox="0 0 25 25" width="50" height="50>Different text.<path></path></svg>');
 ```
+
+## `async function drawOnCanvas()`
+
+Creates a new HTML canvas element and draws the passed in SVG document on it.
+
+```javascript
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+// ...SVG drawing code
+
+var canvas = drawOnCanvas(svg);
+```
+
+The dimensions of the canvas (i.e., its `width` and `height` attributes)
+are made to match those of the passed in SVG document.
+
+At this time the passed in SVG document is drawn on the canvas with horizontal and vertical scalings of 1
+regardless of what the horizontal and vertical scalings of the SVG document actually are.
