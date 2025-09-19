@@ -158,11 +158,11 @@ var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
 // ...SVG drawing code
 
-var canvas = drawOnCanvas(svg);
+var canvas = await drawOnCanvas(svg);
 ```
 
-The dimensions of the canvas (i.e., its `width` and `height` attributes)
-are made to match those of the passed in SVG document.
+The dimensions of the canvas element (i.e., its `width` and `height` attributes)
+are made to match the dimensions of the passed in SVG document.
 
 At this time the passed in SVG document is drawn on the canvas with horizontal and vertical scalings of 1
 regardless of what the horizontal and vertical scalings of the SVG document actually are.
