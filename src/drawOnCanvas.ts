@@ -1,12 +1,9 @@
-import { Scaling } from './Scaling';
-
 /**
  * Creates a new HTML canvas element and draws the passed in SVG document on it.
  *
- * The dimensions of the canvas element are made to match those of the SVG document.
+ * The dimensions of the canvas element are made to match the `width` and `height` attributes of the SVG document.
  *
- * At this time the SVG document is simply drawn on the canvas with horizontal and vertical scalings of 1
- * regardless of what scalings the SVG document might actually have.
+ * This function might fail (if the SVG document is too big, for instance).
  */
 export async function drawOnCanvas(svg: SVGSVGElement): Promise<HTMLCanvasElement | never> {
   let canvas = document.createElement('canvas');
@@ -21,17 +18,8 @@ export async function drawOnCanvas(svg: SVGSVGElement): Promise<HTMLCanvasElemen
   // add to the document body in case it is necessary for proper SVG drawing
   document.body.append(canvas);
 
-  // don't edit the passed in SVG document
-  let svgCopy = svg.cloneNode(true);
-
-  if (!(svgCopy instanceof SVGSVGElement)) {
-    throw new Error('Unable to clone SVG document');
-  }
-
-  (new Scaling(svgCopy)).set(1);
-
-  canvas.width = svgCopy.viewBox.baseVal.width;
-  canvas.height = svgCopy.viewBox.baseVal.height;
+  canvas.width = svg.width.baseVal.value;
+  canvas.height = svg.height.baseVal.value;
 
   let context = canvas.getContext('2d');
 
@@ -40,7 +28,7 @@ export async function drawOnCanvas(svg: SVGSVGElement): Promise<HTMLCanvasElemen
   }
 
   let serializer = new XMLSerializer();
-  let xml = serializer.serializeToString(svgCopy);
+  let xml = serializer.serializeToString(svg);
 
   let image = new Image();
   image.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
@@ -48,7 +36,7 @@ export async function drawOnCanvas(svg: SVGSVGElement): Promise<HTMLCanvasElemen
   // wait for image to load
   await image.decode();
 
-  context.drawImage(image, 0, 0, svgCopy.viewBox.baseVal.width, svgCopy.viewBox.baseVal.height);
+  context.drawImage(image, 0, 0, svg.width.baseVal.value, svg.height.baseVal.value);
 
   // remove from document body
   canvas.remove();
