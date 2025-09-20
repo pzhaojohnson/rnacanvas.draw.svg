@@ -165,5 +165,5 @@ The `width` and `height` attributes of the returned canvas element
 will match the `width` and `height` attributes of the passed in SVG document
 (in units of pixels).
 
-This function might fail for various reasons,
-such as if the SVG document is too big.
+This function might possibly fail,
+such as if the dimensions of the passed in SVG document are too big.
