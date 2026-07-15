@@ -78,7 +78,10 @@ describe('CoordinateSystem class', () => {
   test('setScaling method', () => {
     let targetSVGDoc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
-    targetSVGDoc.viewBox = { baseVal: { width: 1912.83, height: 3304.98 } };
+    Object.defineProperty(targetSVGDoc, 'viewBox', {
+      value: { baseVal: { width: 1912.83, height: 3304.98 } },
+      writable: true,
+    });
 
     let coordinateSystem = new CoordinateSystem(targetSVGDoc);
 

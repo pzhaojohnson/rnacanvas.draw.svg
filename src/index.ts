@@ -1,3 +1,6 @@
+import { Path } from './Path';
+export { Path };
+
 import { setAttributes } from './setAttributes';
 export { setAttributes };
 
