@@ -35,7 +35,7 @@ path.domNode === domNode; // true
 
 ### `closestPoint()`
 
-Calculates and returns the closest point along a path to a given point
+Calculates and returns the closest point along the path to a given point
 (as well as returns the length along the path that the closest point is).
 
 ```javascript
