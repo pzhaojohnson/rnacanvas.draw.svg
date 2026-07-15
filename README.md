@@ -17,6 +17,51 @@ import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
 import { InnerXML, OuterXML } from '@rnacanvas/draw.svg';
 ```
 
+## `class Path`
+
+Wraps an SVG path element.
+
+### `readonly domNode`
+
+The SVG path element corresponding to the path instance.
+
+```javascript
+var domNode = document.createElement('http://www.w3.org/2000/svg', 'path');
+
+var path = new Path(domNode);
+
+path.domNode === domNode; // true
+```
+
+### `closestPoint()`
+
+Calculates and returns the closest point along a path to a given point
+(as well as returns the length along the path that the closest point is).
+
+```javascript
+// make the path a horizontal line
+path.domNode.setAttribute('d', 'M 0 0 H 10');
+
+var p = path.closestPoint({ x: 5, y: 5 });
+
+p; // { x: 5, y: 0, length: 5 }
+```
+
+A `precision` option can also be specified,
+which roughly controls the margin for error in the closest point calculation.
+
+```javascript
+// make the path a horizontal line
+path.domNode.setAttribute('d', 'M 0 0 H 100');
+
+var p = path.closestPoint({ x: 33, y: 33 }, { precision: 20 });
+
+// is within 20 of the true closest point
+p; // { x: 20, y: 0, length: 20 }
+```
+
+This method will throw if a precision of 0 or a negative precision is specified.
+
 ## `setAttributes()`
 
 Set multiple attributes of a target SVG element at once.
