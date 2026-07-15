@@ -23,7 +23,7 @@ Wraps an SVG path element.
 
 ### `readonly domNode`
 
-The SVG path element corresponding to the path instance.
+The wrapped SVG path element.
 
 ```javascript
 var domNode = document.createElement('http://www.w3.org/2000/svg', 'path');
