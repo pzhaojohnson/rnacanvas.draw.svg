@@ -59,7 +59,7 @@ path.domNode.setAttribute('d', 'M 0 0 H 100');
 var p = path.closestPoint({ x: 33, y: 33 }, { precision: 20 });
 
 // is within 20 of the true closest point
-p; // { x: 40, y: 0, length: 20 }
+p; // { x: 40, y: 0, length: 40 }
 ```
 
 This method will throw if a precision of 0 or a negative precision is specified.
