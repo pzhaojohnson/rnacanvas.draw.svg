@@ -50,6 +50,8 @@ p; // { x: 5, y: 0, length: 5 }
 A `precision` option can also be specified,
 which roughly controls the margin for error in the closest point calculation.
 
+(Lower precision improves the speed of calculation.)
+
 ```javascript
 // make the path a horizontal line
 path.domNode.setAttribute('d', 'M 0 0 H 100');
@@ -57,7 +59,7 @@ path.domNode.setAttribute('d', 'M 0 0 H 100');
 var p = path.closestPoint({ x: 33, y: 33 }, { precision: 20 });
 
 // is within 20 of the true closest point
-p; // { x: 20, y: 0, length: 20 }
+p; // { x: 40, y: 0, length: 20 }
 ```
 
 This method will throw if a precision of 0 or a negative precision is specified.
