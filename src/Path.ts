@@ -9,6 +9,8 @@ export class Path {
    *
    * The precision option roughly corresponds to the margin for error in the closest point calculation.
    *
+   * (Higher margin for error improves the speed of calculation.)
+   *
    * This method will throw for non-positive precisions.
    */
   closestPoint(p: Point, options?: { precision?: number }) {
