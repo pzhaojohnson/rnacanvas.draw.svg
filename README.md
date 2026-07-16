@@ -50,7 +50,7 @@ p; // { x: 5, y: 0, length: 5 }
 A `precision` option can also be specified,
 which roughly controls the margin for error in the closest point calculation.
 
-(Lower precision improves the speed of calculation.)
+(Higher margin for error improves the speed of calculation.)
 
 ```javascript
 // make the path a horizontal line
