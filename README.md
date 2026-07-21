@@ -64,6 +64,29 @@ p; // { x: 40, y: 0, length: 40 }
 
 This method will throw if a precision of 0 or a negative precision is specified.
 
+## `class AbstractPath`
+
+A way to do calculations related to SVG path elements
+without having to worry about creating elements and/or adding them to the document body.
+
+```javascript
+// a horizontal line
+var path = new AbstractPath('M 0 0 L 100 0');
+
+var p = path.closestPoint({ x: 33, y: -2 });
+
+p.x; // 33
+p.y; // 0
+p.length; // 33
+```
+
+### `closestPoint()`
+
+This method has the same interface as the `closestPoint()` method of the `Path` class [above](https://pzhaojohnson.github.io/rnacanvas.draw.svg/#class-path).
+
+The main difference is that you don't have to worry about adding an abstract path to an SVG document (or the document body)
+for closest point calculations to work.
+
 ## `setAttributes()`
 
 Set multiple attributes of a target SVG element at once.
