@@ -1,6 +1,9 @@
 import { Path } from './Path';
 export { Path };
 
+import { AbstractPath } from './AbstractPath';
+export { AbstractPath };
+
 import { setAttributes } from './setAttributes';
 export { setAttributes };
 
