@@ -32,20 +32,11 @@ describe('`class AbstractPath`', () => {
       };
     }
 
-    // without specifying precision
     var p = path.closestPoint({ x: 21, y: -54 });
 
-    // assuming a default precision of 5
     expect(p.x).toBeCloseTo(50);
-    expect(p.y).toBeCloseTo(-55);
-    expect(p.length).toBeCloseTo(30);
-
-    // with precision specified
-    var p = path.closestPoint({ x: 21, y: -54 }, { precision: 20 });
-
-    expect(p.x).toBeCloseTo(50);
-    expect(p.y).toBeCloseTo(-45);
-    expect(p.length).toBeCloseTo(20);
+    expect(p.y).toBeCloseTo(-54);
+    expect(p.length).toBeCloseTo(29);
 
     // re-adds SVG container to document body if necessary
     var svgContainer = document.body.childNodes[document.body.childNodes.length - 1];
@@ -61,7 +52,7 @@ describe('`class AbstractPath`', () => {
     expect(document.body.contains(svgContainer)).toBeTruthy();
 
     expect(p.x).toBeCloseTo(50);
-    expect(p.y).toBeCloseTo(-140);
-    expect(p.length).toBeCloseTo(115);
+    expect(p.y).toBeCloseTo(-141);
+    expect(p.length).toBeCloseTo(116);
   });
 });

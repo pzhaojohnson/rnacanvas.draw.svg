@@ -35,34 +35,32 @@ describe('`class Path`', () => {
       y: -11 + (length * Math.sin(Math.PI / 4)),
     });
 
+    // a point on the path
     var closestPoint = path.closestPoint({ x: 42, y: 11 });
 
-    expect(Math.abs(closestPoint.x - 42)).toBeLessThanOrEqual(5);
-    expect(Math.abs(closestPoint.y - 11)).toBeLessThanOrEqual(5);
-    expect(Math.abs(closestPoint.length - (22 * 2**0.5))).toBeLessThanOrEqual(5);
+    expect(closestPoint.x).toBeCloseTo(42);
+    expect(closestPoint.y).toBeCloseTo(11);
+    expect(closestPoint.length).toBeCloseTo((2 * 22**2)**0.5);
 
-    // with precision specified
-    var closestPoint = path.closestPoint({ x: 42, y: 11 }, { precision: 20 });
+    // a point off the path
+    var closestPoint = path.closestPoint({ x: 42 - 5, y: 11 + 5 });
 
-    expect(Math.abs(closestPoint.x - 42)).toBeLessThanOrEqual(20);
-    expect(Math.abs(closestPoint.y - 11)).toBeLessThanOrEqual(20);
-    expect(Math.abs(closestPoint.length - (22 * 2**0.5))).toBeLessThanOrEqual(20);
+    expect(closestPoint.x).toBeCloseTo(42);
+    expect(closestPoint.y).toBeCloseTo(11);
+    expect(closestPoint.length).toBeCloseTo((2 * 22**2)**0.5);
 
-    expect(Math.abs(closestPoint.x - 42)).toBeGreaterThan(5);
-    expect(Math.abs(closestPoint.y - 11)).toBeGreaterThan(5);
-    expect(Math.abs(closestPoint.length - (22 * 2**0.5))).toBeGreaterThan(5);
+    // the closest point is the start point
+    var closestPoint = path.closestPoint({ x: 18, y: -15 });
 
-    // a point far away from the path
-    var closestPoint = path.closestPoint({ x: 1000, y: -1000 });
+    expect(closestPoint.x).toBeCloseTo(20);
+    expect(closestPoint.y).toBeCloseTo(-11);
+    expect(closestPoint.length).toBeCloseTo(0);
 
-    expect(Math.abs(closestPoint.x - path.closestPoint(closestPoint).x)).toBeLessThanOrEqual(5);
-    expect(Math.abs(closestPoint.y - path.closestPoint(closestPoint).y)).toBeLessThanOrEqual(5);
-    expect(Math.abs(closestPoint.length - path.closestPoint(closestPoint).length)).toBeLessThanOrEqual(5);
+    // the closest point is the end point
+    var closestPoint = path.closestPoint({ x: 20 + 100, y: (-11) + 100 });
 
-    // specifying a precision of zero
-    expect(() => path.closestPoint({ x: 42, y: 11 }, { precision: 0 })).toThrow();
-
-    // specifying negative precision
-    expect(() => path.closestPoint({ x: 42, y: 11 }, { precision: -20 })).toThrow();
+    expect(closestPoint.x).toBeCloseTo(20 + (100 * Math.cos(Math.PI / 4)));
+    expect(closestPoint.y).toBeCloseTo((-11) + (100 * Math.sin(Math.PI / 4)));
+    expect(closestPoint.length).toBeCloseTo(100);
   });
 });

@@ -15,13 +15,9 @@ export class AbstractPath {
    * Returns the closest point on the path to the specified point
    * (as well as the length along the path that the closest point is at).
    *
-   * The `precision` option roughly corresponds to the margin for error in the closest point calculation.
-   *
-   * Higher margin for error speeds up calculation.
+   * This method is not guaranteed to return the true closest point (e.g., for particularly convoluted paths).
    */
-  closestPoint(p: Point, options?: { precision?: number }) {
-    let precision = options?.precision ?? 5;
-
+  closestPoint(p: Point) {
     // just in case the SVG container got removed somehow
     if (!document.body.contains(svgContainer)) {
       document.body.append(svgContainer);
@@ -29,7 +25,7 @@ export class AbstractPath {
 
     path.setAttribute('d', this.#d);
 
-    return (new Path(path)).closestPoint(p, { precision });
+    return (new Path(path)).closestPoint(p);
   }
 }
 
