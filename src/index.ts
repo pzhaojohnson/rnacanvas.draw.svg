@@ -1,3 +1,6 @@
+import { Texts } from './Texts';
+export { Texts };
+
 import { Path } from './Path';
 export { Path };
 

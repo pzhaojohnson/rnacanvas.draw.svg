@@ -17,6 +17,40 @@ import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
 import { InnerXML, OuterXML } from '@rnacanvas/draw.svg';
 ```
 
+## `class Texts`
+
+Represents all text elements in a target SVG document.
+
+```javascript
+var targetSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+var texts = new Texts(targetSVG);
+```
+
+### `toArray()`
+
+Returns all text elements in the target SVG document (including nested ones) as an array
+in document order.
+
+Each text element is wrapped in an object
+with a reference to the text element DOM node stored within the `domNode` property.
+
+```javascript
+var text1 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+var text2 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+
+targetSVG.append(text1);
+
+var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+g.append(text2);
+targetSVG.append(g);
+
+texts.toArray().length; // 2
+
+texts.toArray()[0].domNode === text1; // true
+texts.toArray()[1].domNode === text2; // true
+```
+
 ## `class Path`
 
 Wraps an SVG path element.
