@@ -67,6 +67,20 @@ var path = new Path(domNode);
 path.domNode === domNode; // true
 ```
 
+### `shift()`
+
+Shifts the path by the specified vector.
+
+(Modifies the `d` attribute directly rather than the `transform` attribute, for instance.)
+
+```javascript
+path.domNode.setAttribute('d', 'M 0 0 L 10 10');
+
+path.shift(5, -5);
+
+path.domNode.getAttribute('d'); // 'M5 -5L15 5'
+```
+
 ### `closestPoint()`
 
 Calculates and returns the closest point along the path to a given point

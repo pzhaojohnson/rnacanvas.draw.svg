@@ -15,6 +15,43 @@ describe('`class Path`', () => {
     expect(domNode).toBeTruthy();
   });
 
+  test('`shift()`', () => {
+    var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    var path = new Path(domNode);
+
+    // absolute and relative commands (relative commands are unchanged)
+    domNode.setAttribute('d', 'M 10 10 L 20 20 H 30 V 40 h 5 v 5 l 1 1');
+
+    path.shift(100, 200);
+
+    expect(domNode.getAttribute('d')).toBe('M110 210L120 220H130V240h5v5l1 1');
+
+    // command types are preserved (e.g., arcs are not converted into curves)
+    domNode.setAttribute('d', 'M 10 10 A 5 7 30 1 0 20 20 C 1 1 2 2 3 3 Q 4 4 5 5');
+
+    path.shift(-10, 5.5);
+
+    expect(domNode.getAttribute('d')).toBe('M0 15.5A5 7 30 1 0 10 25.5C-9 6.5 -8 7.5 -7 8.5Q-6 9.5 -5 10.5');
+
+    // does not add a transform attribute
+    expect(domNode.hasAttribute('transform')).toBe(false);
+
+    // empty `d` attribute
+    domNode.setAttribute('d', '');
+
+    path.shift(10, 20);
+
+    expect(domNode.getAttribute('d')).toBe('');
+
+    // no `d` attribute
+    domNode.removeAttribute('d');
+
+    path.shift(10, 20);
+
+    expect(domNode.getAttribute('d')).toBe('');
+  });
+
   test('`closestPoint()`', () => {
     var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 

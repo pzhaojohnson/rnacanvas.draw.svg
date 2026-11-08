@@ -1,7 +1,20 @@
 import { distance } from '@rnacanvas/points';
 
+import { SVGPathData } from 'svg-pathdata';
+
 export class Path {
   constructor(readonly domNode: SVGPathElement) {}
+
+  /**
+   * Shifts the path by the specified vector.
+   *
+   * (Modifies the `d` attribute directly rather than the `transform` attribute, for instance.)
+   */
+  shift(dx: number, dy: number): void {
+    let d = this.domNode.getAttribute('d') ?? '';
+
+    this.domNode.setAttribute('d', (new SVGPathData(d)).translate(dx, dy).encode());
+  }
 
   /**
    * Returns the closest point along the path to the given point
