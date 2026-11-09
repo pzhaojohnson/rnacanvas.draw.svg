@@ -7,6 +7,15 @@ export { Text };
 import { Line } from './Line';
 export { Line };
 
+import { Circle } from './Circle';
+export { Circle };
+
+import { Ellipse } from './Ellipse';
+export { Ellipse };
+
+import { Rect } from './Rect';
+export { Rect };
+
 import { Path } from './Path';
 export { Path };
 

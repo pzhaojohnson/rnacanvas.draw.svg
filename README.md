@@ -121,6 +121,102 @@ line.domNode.getAttribute('x2'); // '35'
 line.domNode.getAttribute('y2'); // '35'
 ```
 
+## `class Circle`
+
+Wraps an SVG circle element.
+
+### `readonly domNode`
+
+The wrapped SVG circle element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+var circle = new Circle(domNode);
+
+circle.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the circle by the specified vector.
+
+Modifies the `cx` and `cy` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+circle.domNode.setAttribute('cx', '10');
+circle.domNode.setAttribute('cy', '20');
+
+circle.shift(5, -5);
+
+circle.domNode.getAttribute('cx'); // '15'
+circle.domNode.getAttribute('cy'); // '15'
+```
+
+## `class Ellipse`
+
+Wraps an SVG ellipse element.
+
+### `readonly domNode`
+
+The wrapped SVG ellipse element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+
+var ellipse = new Ellipse(domNode);
+
+ellipse.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the ellipse by the specified vector.
+
+Modifies the `cx` and `cy` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+ellipse.domNode.setAttribute('cx', '10');
+ellipse.domNode.setAttribute('cy', '20');
+
+ellipse.shift(5, -5);
+
+ellipse.domNode.getAttribute('cx'); // '15'
+ellipse.domNode.getAttribute('cy'); // '15'
+```
+
+## `class Rect`
+
+Wraps an SVG rectangle element.
+
+### `readonly domNode`
+
+The wrapped SVG rectangle element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+
+var rect = new Rect(domNode);
+
+rect.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the rectangle by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+rect.domNode.setAttribute('x', '10');
+rect.domNode.setAttribute('y', '20');
+
+rect.shift(5, -5);
+
+rect.domNode.getAttribute('x'); // '15'
+rect.domNode.getAttribute('y'); // '15'
+```
+
 ## `class Path`
 
 Wraps an SVG path element.
