@@ -1,6 +1,9 @@
 import { Texts } from './Texts';
 export { Texts };
 
+import { Text } from './Text';
+export { Text };
+
 import { Path } from './Path';
 export { Path };
 

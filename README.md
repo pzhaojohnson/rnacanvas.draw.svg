@@ -51,6 +51,40 @@ texts.toArray()[0].domNode === text1; // true
 texts.toArray()[1].domNode === text2; // true
 ```
 
+## `class Text`
+
+Wraps an SVG text element.
+
+### `readonly domNode`
+
+The wrapped SVG text element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+
+var text = new Text(domNode);
+
+text.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the text element by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` or `dx` and `dy` attributes, for instance).
+
+The `x` and `y` attributes of descendent `tspan` elements are also modified (if present).
+
+```javascript
+text.domNode.setAttribute('x', '10');
+text.domNode.setAttribute('y', '20');
+
+text.shift(5, -5);
+
+text.domNode.getAttribute('x'); // '15'
+text.domNode.getAttribute('y'); // '15'
+```
+
 ## `class Path`
 
 Wraps an SVG path element.
