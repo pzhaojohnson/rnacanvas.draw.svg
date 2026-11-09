@@ -4,6 +4,9 @@ export { Texts };
 import { Text } from './Text';
 export { Text };
 
+import { Line } from './Line';
+export { Line };
+
 import { Path } from './Path';
 export { Path };
 

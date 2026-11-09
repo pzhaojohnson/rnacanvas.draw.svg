@@ -85,6 +85,42 @@ text.domNode.getAttribute('x'); // '15'
 text.domNode.getAttribute('y'); // '15'
 ```
 
+## `class Line`
+
+Wraps an SVG line element.
+
+### `readonly domNode`
+
+The wrapped SVG line element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+
+var line = new Line(domNode);
+
+line.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the line by the specified vector.
+
+Modifies the `x1`, `y1`, `x2` and `y2` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+line.domNode.setAttribute('x1', '10');
+line.domNode.setAttribute('y1', '20');
+line.domNode.setAttribute('x2', '30');
+line.domNode.setAttribute('y2', '40');
+
+line.shift(5, -5);
+
+line.domNode.getAttribute('x1'); // '15'
+line.domNode.getAttribute('y1'); // '15'
+line.domNode.getAttribute('x2'); // '35'
+line.domNode.getAttribute('y2'); // '35'
+```
+
 ## `class Path`
 
 Wraps an SVG path element.
