@@ -1,3 +1,6 @@
+import { SVG } from './SVG';
+export { SVG };
+
 import { Texts } from './Texts';
 export { Texts };
 
@@ -16,8 +19,23 @@ export { Ellipse };
 import { Rect } from './Rect';
 export { Rect };
 
+import { Polyline } from './Polyline';
+export { Polyline };
+
+import { Polygon } from './Polygon';
+export { Polygon };
+
 import { Path } from './Path';
 export { Path };
+
+import { Image } from './Image';
+export { Image };
+
+import { Use } from './Use';
+export { Use };
+
+import { ForeignObject } from './ForeignObject';
+export { ForeignObject };
 
 import { AbstractPath } from './AbstractPath';
 export { AbstractPath };

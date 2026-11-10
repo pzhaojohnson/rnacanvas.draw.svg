@@ -17,6 +17,38 @@ import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
 import { InnerXML, OuterXML } from '@rnacanvas/draw.svg';
 ```
 
+## `class SVG`
+
+Wraps an SVG element.
+
+### `readonly domNode`
+
+The wrapped SVG element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
+var svg = new SVG(domNode);
+
+svg.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the (nested) SVG element by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+svg.domNode.setAttribute('x', '10');
+svg.domNode.setAttribute('y', '20');
+
+svg.shift(5, -5);
+
+svg.domNode.getAttribute('x'); // '15'
+svg.domNode.getAttribute('y'); // '15'
+```
+
 ## `class Texts`
 
 Represents all text elements in a target SVG document.
@@ -217,6 +249,66 @@ rect.domNode.getAttribute('x'); // '15'
 rect.domNode.getAttribute('y'); // '15'
 ```
 
+## `class Polyline`
+
+Wraps an SVG polyline element.
+
+### `readonly domNode`
+
+The wrapped SVG polyline element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+
+var polyline = new Polyline(domNode);
+
+polyline.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the polyline by the specified vector.
+
+Modifies the `points` attribute (rather than the `transform` attribute, for instance).
+
+```javascript
+polyline.domNode.setAttribute('points', '0,0 10,20 30,40');
+
+polyline.shift(5, -5);
+
+polyline.domNode.getAttribute('points'); // '5,-5 15,15 35,35'
+```
+
+## `class Polygon`
+
+Wraps an SVG polygon element.
+
+### `readonly domNode`
+
+The wrapped SVG polygon element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+
+var polygon = new Polygon(domNode);
+
+polygon.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the polygon by the specified vector.
+
+Modifies the `points` attribute (rather than the `transform` attribute, for instance).
+
+```javascript
+polygon.domNode.setAttribute('points', '0,0 10,20 30,40');
+
+polygon.shift(5, -5);
+
+polygon.domNode.getAttribute('points'); // '5,-5 15,15 35,35'
+```
+
 ## `class Path`
 
 Wraps an SVG path element.
@@ -277,6 +369,102 @@ p; // { x: 40, y: 0, length: 40 }
 ```
 
 This method will throw if a precision of 0 or a negative precision is specified.
+
+## `class Image`
+
+Wraps an SVG image element.
+
+### `readonly domNode`
+
+The wrapped SVG image element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+
+var image = new Image(domNode);
+
+image.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the image element by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+image.domNode.setAttribute('x', '10');
+image.domNode.setAttribute('y', '20');
+
+image.shift(5, -5);
+
+image.domNode.getAttribute('x'); // '15'
+image.domNode.getAttribute('y'); // '15'
+```
+
+## `class Use`
+
+Wraps an SVG use element.
+
+### `readonly domNode`
+
+The wrapped SVG use element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+
+var use = new Use(domNode);
+
+use.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the use element by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+use.domNode.setAttribute('x', '10');
+use.domNode.setAttribute('y', '20');
+
+use.shift(5, -5);
+
+use.domNode.getAttribute('x'); // '15'
+use.domNode.getAttribute('y'); // '15'
+```
+
+## `class ForeignObject`
+
+Wraps an SVG foreign object element.
+
+### `readonly domNode`
+
+The wrapped SVG foreign object element.
+
+```javascript
+var domNode = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+
+var foreignObject = new ForeignObject(domNode);
+
+foreignObject.domNode === domNode; // true
+```
+
+### `shift()`
+
+Shifts the foreign object element by the specified vector.
+
+Modifies the `x` and `y` attributes (rather than the `transform` attribute, for instance).
+
+```javascript
+foreignObject.domNode.setAttribute('x', '10');
+foreignObject.domNode.setAttribute('y', '20');
+
+foreignObject.shift(5, -5);
+
+foreignObject.domNode.getAttribute('x'); // '15'
+foreignObject.domNode.getAttribute('y'); // '15'
+```
 
 ## `class AbstractPath`
 
