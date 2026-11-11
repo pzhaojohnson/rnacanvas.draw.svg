@@ -17,6 +17,32 @@ import { bringToFront, sendToBack } from '@rnacanvas/draw.svg';
 import { InnerXML, OuterXML } from '@rnacanvas/draw.svg';
 ```
 
+## `shift()`
+
+Shifts the specified SVG element by the specified vector.
+
+The vector is specified as an object with `x` and `y` properties.
+
+Does nothing for SVG elements that aren't rendered (e.g., `defs` and `title` elements).
+
+Acts recursively on the immediate children of `g` elements.
+
+Emits a console error message (without throwing) for unrecognized SVG element types.
+
+(In principle, this function should be able to handle all possible SVG element types.)
+
+```javascript
+var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
+circle.setAttribute('cx', '10');
+circle.setAttribute('cy', '20');
+
+shift(circle, { x: 5, y: -5 });
+
+circle.getAttribute('cx'); // '15'
+circle.getAttribute('cy'); // '15'
+```
+
 ## `class SVG`
 
 Wraps an SVG element.

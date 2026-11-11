@@ -1,3 +1,6 @@
+import { shift } from './shift';
+export { shift };
+
 import { SVG } from './SVG';
 export { SVG };
 
